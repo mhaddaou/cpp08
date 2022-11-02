@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:16:18 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/11/02 19:43:04 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:59:01 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class MutantStack: public std::stack<Type>
 			this.c = other.c;
 			return (*this);
 		}
-		typedef typename std::stack<Type>::iterator iterator;
+		typedef typename std::stack<Type>::container_type::iterator iterator;
 		iterator begin() { return this->c.begin(); }
 		iterator end() { return this->c.end(); }
 };

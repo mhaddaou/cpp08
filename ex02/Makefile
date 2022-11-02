@@ -6,14 +6,14 @@
 #    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 00:43:34 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/11/02 19:45:59 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/11/02 19:58:21 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = MutantStack
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp
-HEADER = include/MutantStack.hpp
+HEADER = MutantStack.hpp
 CC = c++
 RM = rm -rf
 
