@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 02:48:39 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/11/01 03:12:28 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/11/02 18:30:25 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,39 @@ void Span::addNumber(int number){
     }
 }
 
-int Span::getNumber(int index){
-    try{
-        if (index < 0 && index > _vec.size())
-            throw Span::outRange();
-    }
-    catch(std::exception& e){
-        std::cerr << e.what() << std::endl;
-    }
+const char*    Span::NoSpace::what() const throw(){
+    return ("ERROR \n\t No space available");
 }
 
-const char* Span::NoSpace::what() const throw(){
+const char* Span::outRange::what() const throw(){
     return ("ERROR \n\t this index is out of bounds");
 }
 
-const char* Span::NoSpace::what() const throw(){
-    return ("ERROR \n\t No space available");
+int             Span::longestSpan()
+{
+        if (_vec.size() <= 1)
+                throw Span::NoNumbers();
+        return (*std::max_element(this->_vec.begin(), this->_vec.end())
+                - *std::min_element(this->_vec.begin(), this->_vec.end()));
 }
+int Span::shortestSpan(){
+    if (_vec.size() <= 1)
+        throw Span::NoNumbers();
+    std::vector<int> sort = _vec;
+    std::sort(sort.begin(), sort.end());
+    int ret = sort[1] -sort[0];
+    for (size_t i = 1;  i < sort.size()- 1 ; i++){
+        if (ret > sort[i + 1] - sort[i])
+            ret = sort[i + 1] - sort[i];
+    }
+    return (ret);
+}
+
+const char * Span::NoNumbers::what() const throw(){
+    return ("ERROR \n\t Span is empty");
+}
+
+
+// int Span::shortestSpan(){
+//     return (*std::min(_vec.begin(), _vec.end()));
+// }
